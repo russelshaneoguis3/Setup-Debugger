@@ -1,0 +1,116 @@
+Install(Firebase) //
+	Create Project 
+		-->Add firebase SDK(npm)
+
+Install(nodejs)LTS //
+	cmd Terminal 
+		-->node -v (see if successful dl)
+	 
+Vscode Terminal //
+
+	npm init -y    = (package download)
+	npm i firebase   = (firebase install)
+	npm i webpack webpack-cli -D     = (webpack install)
+
+new folder/named-->(src)
+	new file-->(index.js)
+	
+new file-->(webpack.config.js)
+		
+	inside code copy (webpack.config.js)-->
+		const path = require('path')
+
+		module.exports = {
+   			 mode: 'development',
+   			 devtool: 'eval-source-map',
+   			 entry: './src/index.js',
+   			 output: {
+            			path: path.resolve(__dirname, 'dist'),
+           			filename: 'bundle.js'
+    				 }
+				 }
+
+open(package.json)
+     add_under_"test"-->("build": "node_modules/.bin/webpack")
+
+open(index.js)
+     copy%paste-->code_from_firebase_console(registered/created project)
+
+VScode terminall // 
+
+	npm run build  = (create bundle.js)
+
+create html file --> (inside-->dist)
+	index.html
+
+open(index.js)
+     add_last-line-->
+		console.log(app)
+
+open(index.html)
+     add_under_<title> -->
+		<script defer src="./bundle.js"></script>
+
+VScode terminal//
+
+	npm run build (run build again)
+
+
+Install(Git) // 
+
+VScode terminal //
+
+	bash = (idunno but it run for open wide terminal)
+	       (Dropdown icon beside + icon in terminal)
+
+	git init  = (git initialize)
+
+In SRC folder --> add/create (.gitignore)
+			code this --> node_modules 
+
+VScode terminall //
+	git add .
+	git commit -m "Initial Commit"
+		
+		cant commit if incomplete info -- >
+		code this --> git config --global user.email "you@example.com"
+			      git config --global user.name "Your Name"
+			
+		
+Create repository in GitHub //(choose public)
+
+VScode terminal //
+	git remote add origin + (link of repository, eg.,  git add git remote add origin https://github.com/russelshaneoguis3/FirebasePractice.git)
+
+	git push -u origin master = (upload file to github)
+
+
+Command Prompt //
+	npm install -g firebase-tools  =  (install tools)
+	firebase -V =  (confirm install)
+	firebase help login  = (login info)
+	firebase login  = (for login)
+		press--> n 
+		press-->allow (browser)
+
+VScode terminal // 
+	firebase init = (initialize firebase hosting)
+		press--> Y
+		Choose-->Configure files for Firebase Hosting and (optionally) set up GitHub (press Space bar)
+		Choose-->Use existing project 
+		Select--> project 
+		code--> dist
+		press--> Y
+		press--> N
+		press--> N
+
+	firebase deploy = (deploying firebase)
+
+
+Updating files to GitHub //
+	git pull
+	git add .
+	git commit -m "Commit message describing changes"
+	git push
+		
+	

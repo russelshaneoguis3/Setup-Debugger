@@ -1,0 +1,44 @@
+-create a new folder
+	-create new folder --> static
+	-create new folder --> templates
+-create outside --> app.py
+
+-install the flask
+	*pip install Flask
+
+-install the flask mysql
+	*pip install flask_mysqldb
+
+-import the libraries in the app.py
+	*from flask import Flask, render_template, request, url_for, flash
+	 from werkzeug.utils import redirect
+	 from flask_mysqldb import MySQL
+
+-mysql setup
+	*app = Flask(__name__)
+	app.secret_key = 'many random bytes' 
+
+	app.config['MYSQL_HOST'] = 'localhost'
+	app.config['MYSQL_USER'] = 'root'
+	app.config['MYSQL_PASSWORD'] = '123456'
+	app.config['MYSQL_DB'] = 'project'
+
+	mysql = MySQL(app)
+
+-setup landing page
+	*#landing page & data display
+	@app.route('/')
+	def Index():
+    		cur = mysql.connection.cursor()
+    		cur.execute("SELECT * FROM students")
+    		data = cur.fetchall()
+    		cur.close()
+    
+   		 return render_template('index.html', students=data)
+
+	if __name__ == "__main__":
+    		app.run(debug=True)
+
+-run the code using terminal,
+	python app.py
+	
